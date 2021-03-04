@@ -238,6 +238,10 @@ spring:
           uri: http://localhost:8084
           predicates:
             - Path= /myPages/**
+        - id: Inventory
+          uri: http://localhost:8085
+          predicates:
+            - Path=/inventories/** 
       globalcors:
         corsConfigurations:
           '[/**]':
@@ -273,6 +277,10 @@ spring:
           uri: http://MyPage:8080
           predicates:
             - Path= /myPages/**
+        - id: Inventory
+          uri: http://Inventory:8080
+          predicates:
+            - Path=/inventories/** 
       globalcors:
         corsConfigurations:
           '[/**]':
@@ -287,7 +295,7 @@ spring:
 server:
   port: 8080
 ```
-8088 port로 Order서비스 정상 호출
+8080 port로 Order서비스 정상 호출
 
 ![증빙1](https://github.com/bigot93/forthcafe/blob/main/images/gateway.png)
 
