@@ -321,9 +321,9 @@ Materialized View를 구현하여, 타 마이크로서비스의 데이터 원본
 # 폴리글랏
 Order 서비스의 DB와 MyPage의 DB를 다른 DB를 사용하여 폴리글랏을 만족시키고 있다.
 
-**Order의 pom.xml DB 설정 코드**
+**Inventory의 pom.xml DB 설정 코드**
 
-![증빙5](https://github.com/bigot93/forthcafe/blob/main/images/db_conf1.png)
+![증빙5](https://github.com/minksong69/FourthCafe/blob/main/images/Inventory%20DB%20%EC%84%A4%EC%A0%95.png)
 
 **MyPage의 pom.xml DB 설정 코드**
 
