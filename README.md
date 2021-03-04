@@ -304,7 +304,7 @@ Materialized View를 구현하여, 타 마이크로서비스의 데이터 원본
 
 주문(ordered) 실행 후 MyPages 화면
 
-![증빙3](https://github.com/bigot93/forthcafe/blob/main/images/order_pages.png)
+![증빙3](https://github.com/minksong69/FourthCafe/blob/main/images/%EC%A3%BC%EB%AC%B8%20%ED%9B%84%20myPages.png)
 
 주문(OrderCancelled) 취소 후 MyPages 화면
 
