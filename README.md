@@ -55,19 +55,17 @@ msaez.io를 통해 구현한 Aggregate 단위로 Entity를 선언 후, 구현을
 
 Entity Pattern과 Repository Pattern을 적용하기 위해 Spring Data REST의 RestRepository를 적용하였다.
 
-**Order 서비스의 Order.java**
+**Inventory 서비스의 Inventory.java**
 ```java 
-package forthcafe;
+package fourthcafe;
 
 import javax.persistence.*;
 import org.springframework.beans.BeanUtils;
-
-import forthcafe.external.Pay;
-import forthcafe.external.PayService;
+import java.util.List;
 
 @Entity
-@Table(name="Order_table")
-public class Order {
+@Table(name="Inventory_table")
+public class Inventory {
 
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
@@ -79,26 +77,18 @@ public class Order {
     private Integer quantity;
     private String status;
 
-    @PostPersist
-    public void onPostPersist(){
-        Ordered ordered = new Ordered();
-        BeanUtils.copyProperties(this, ordered);
-        ordered.setStatus("Order");
-        
-        ordered.publish();
+    @PrePersist
+    public void onPrePersist(){
+        Warehoused warehoused = new Warehoused();
+        BeanUtils.copyProperties(this, warehoused);
+        warehoused.publishAfterCommit();
 
-        Pay pay = new Pay();
-        BeanUtils.copyProperties(this, pay);
-        
-        OrderApplication.applicationContext.getBean(PayService.class).pay(pay);
-    }
-    
-    @PreRemove
-    public void onPreRemove(){
-        OrderCancelled orderCancelled = new OrderCancelled();
-        BeanUtils.copyProperties(this, orderCancelled);
 
-        orderCancelled.publishAfterCommit();
+        InventoryCanceled inventoryCanceled = new InventoryCanceled();
+        BeanUtils.copyProperties(this, inventoryCanceled);
+        inventoryCanceled.publishAfterCommit();
+
+
     }
 
 
@@ -157,15 +147,13 @@ public class Order {
 }
 ```
 
-**Pay 서비스의 PolicyHandler.java**
+**Inventory 서비스의 PolicyHandler.java**
 ```java
-package forthcafe;
+package fourthcafe;
 
-import forthcafe.config.kafka.KafkaProcessor;
-
-import java.util.List;
-import java.util.Optional;
-
+import fourthcafe.config.kafka.KafkaProcessor;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.stream.annotation.StreamListener;
 import org.springframework.messaging.handler.annotation.Payload;
@@ -175,7 +163,7 @@ import org.springframework.stereotype.Service;
 public class PolicyHandler{
 
     @Autowired
-    PayRepository payRepository;
+    InventoryRepository inventoryRepository;
 
     @StreamListener(KafkaProcessor.INPUT)
     public void onStringEventListener(@Payload String eventString){
@@ -183,27 +171,27 @@ public class PolicyHandler{
     }
 
     @StreamListener(KafkaProcessor.INPUT)
-    public void wheneverOrderCancelled_(@Payload OrderCancelled orderCancelled){
+    public void wheneverDeliveryCancelled_InventoryCancel(@Payload DeliveryCancelled deliveryCancelled){
 
         try {
-            if(orderCancelled.isMe()){
-                System.out.println("##### OrderCancelled listener  : " + orderCancelled.toJson());
+            if(deliveryCancelled.isMe()){
+                System.out.println("##### DeliveryCancelled listener  : " + deliveryCancelled.toJson());
     
-                Optional<Pay> Optional = payRepository.findById(orderCancelled.getId());
+                Optional<Delivery> Optional = deliveryRepository.findById(deliveryCancelled.getId());
     
                 if( Optional.isPresent()) {
-                    Pay pay = Optional.get();
+                    Delivery delivery = Optional.get();
     
                     // 객체에 이벤트의 eventDirectValue 를 set 함
-                    pay.setId(orderCancelled.getId());
-                    pay.setMenuId(orderCancelled.getMenuId());
-                    pay.setMenuName(orderCancelled.getMenuName());
-                    pay.setOrdererName(orderCancelled.getOrdererName());
-                    pay.setPrice(orderCancelled.getPrice());
-                    pay.setQuantity(orderCancelled.getQuantity());
-                    pay.setStatus("payCancelled");
+                    delivery.setId(deliveryCancelled.getId());
+                    delivery.setMenuId(deliveryCancelled.getMenuId());
+                    delivery.setMenuName(deliveryCancelled.getMenuName());
+                    delivery.setOrdererName(deliveryCancelled.getOrdererName());
+                    delivery.setPrice(deliveryCancelled.getPrice());
+                    delivery.setQuantity(deliveryCancelled.getQuantity());
+                    delivery.setStatus("deliveryCancelled");
 
-                    payRepository.save(pay);
+                    deliveryRepository.save(delivery);
                 }
             }
         } catch (Exception e) {
