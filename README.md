@@ -327,7 +327,7 @@ Order 서비스의 DB와 MyPage의 DB를 다른 DB를 사용하여 폴리글랏�
 
 **MyPage의 pom.xml DB 설정 코드**
 
-![증빙6](https://github.com/bigot93/forthcafe/blob/main/images/db_conf2.png)
+![증빙6](https://github.com/minksong69/FourthCafe/blob/main/images/MyPage%20DB%20%EC%84%A4%EC%A0%95.png)
 
 # 동기식 호출 과 Fallback 처리
 
