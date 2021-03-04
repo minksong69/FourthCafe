@@ -14,15 +14,11 @@
 
 ### 비기능적 요구사항
 1. 트랜젝션
-   1. 결재가 취소되면 배달이 진행되지 않는다 → Sync 호출
    1. 결재가 취소되면 재고가 입고되지 않는다 → Sync 호출
 2. 장애격리
-   1. 배송에서 장애가 발생해도 결재와 주문은 24시간 받을 수 있어야 한다 → Async(event-driven), Eventual Consistency
    1. 배달에서 장애가 발생해도 재고는 정상적으로 입고될 수 있어야 한다 → Async(event-driven), Eventual Consistency
-   1. 결재가 과중되면 결재를 잠시 후에 하도록 유도한다 → Circuit breaker, fallback
    1. 입고가 과중되면 입고를 잠시 후에 하도록 유도한다 → Circuit breaker, fallback
 3. 성능
-   1. 고객이 주문상태를 주문내역조회에서 확인할 수 있어야 한다 → CQRS
    1. 점원이 재고상태를 재고내역조회에서 확인할 수 있어야 한다 → CQRS
 
 # Event Storming 결과
@@ -30,7 +26,7 @@
 ![EventStormingV1](https://github.com/minksong69/FourthCafe/blob/main/images/eventingstorming_minksong69_fourthcafe.png)
 
 # 헥사고날 아키텍처 다이어그램 도출
-![증빙10](https://github.com/minksong69/forthcafe/blob/main/images/%ED%97%A5%EC%82%AC%EA%B3%A0%EB%82%A0%20%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98_minksong69.png)
+![증빙10](https://github.com/minksong69/FourthCafe/blob/main/images/%ED%97%A5%EC%82%AC%EA%B3%A0%EB%82%A0%20%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98_minksong69.png)
 
 # 구현
 분석/설계 단계에서 도출된 헥사고날 아키텍처에 따라, 구현한 각 서비스를 로컬에서 실행하는 방법은 아래와 같다 (각각의 포트넘버는 8081 ~ 8085, 8088 이다)
