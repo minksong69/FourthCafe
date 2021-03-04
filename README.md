@@ -436,6 +436,8 @@ git clone https://github.com/minksong69/FourthCafe.git
 
 /forthcafe/Pay/kubernetes/deployment.yml
 
+/forthcafe/Inventory/kubernetes/deployment.yml
+
 
 ## ConfigMap
 * deployment.yml 파일에 설정
