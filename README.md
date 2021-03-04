@@ -295,7 +295,7 @@ spring:
 server:
   port: 8080
 ```
-8080 port로 Order서비스 정상 호출
+8088 port로 Order서비스 정상 호출
 
 ![증빙1](https://github.com/bigot93/forthcafe/blob/main/images/gateway.png)
 
