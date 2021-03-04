@@ -428,15 +428,15 @@ git clone https://github.com/minksong69/FourthCafe.git
 
 * deployment.yml 파일 image버전 초기 설정으로 변경(-> v1), 총 5개 --> 맨 앞의 이름도 변경(skteam01 --> skuser11)
 
-/forthcafe/Delivery/kubernetes/deployment.yml
+/FourthCafe-main/Delivery/kubernetes/deployment.yml
 
-/forthcafe/MyPage/kubernetes/deployment.yml
+/FourthCafe-main/MyPage/kubernetes/deployment.yml
 
-/forthcafe/Order/kubernetes/deployment.yml
+/FourthCafe-main/Order/kubernetes/deployment.yml
 
-/forthcafe/Pay/kubernetes/deployment.yml
+/FourthCafe-main/Pay/kubernetes/deployment.yml
 
-/forthcafe/Inventory/kubernetes/deployment.yml
+/FourthCafe-main/Inventory/kubernetes/deployment.yml
 
 
 ## ConfigMap
