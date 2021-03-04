@@ -423,8 +423,15 @@ kubectl -n kafka exec -ti my-kafka-0 -- /usr/bin/kafka-console-consumer --bootst
 
 * 소스 가져오기
 ```
-git clone https://github.com/bigot93/forthcafe.git
+git clone https://github.com/minksong69/FourthCafe.git
 ```
+
+* deployment.yml 파일 image버전 초기 설정으로 변경(-> v1), 총 5개 --> 맨 앞의 이름도 변경(skteam01 --> skuser11)
+/forthcafe/Delivery/kubernetes/deployment.yml
+/forthcafe/MyPage/kubernetes/deployment.yml
+/forthcafe/Order/kubernetes/deployment.yml
+/forthcafe/Pay/kubernetes/deployment.yml
+
 
 ## ConfigMap
 * deployment.yml 파일에 설정
@@ -525,34 +532,40 @@ kubectl expose deploy mypage --type=ClusterIP --port=8080
 ```
 cd ..
 cd Order
-az acr build --registry skteam01 --image skteam01.azurecr.io/order:v1 .
-kubectl create deploy order --image=skteam01.azurecr.io/order:v1
+az acr build --registry skuser11 --image skuser11.azurecr.io/order:v1 .
+kubectl create deploy order --image=skuser11.azurecr.io/order:v1
 kubectl expose deploy order --type=ClusterIP --port=8080
 
 cd .. 
 cd Pay
-az acr build --registry skteam01 --image skteam01.azurecr.io/pay:v1 .
-kubectl create deploy pay --image=skteam01.azurecr.io/pay:v1
+az acr build --registry skuser11 --image skuser11.azurecr.io/pay:v1 .
+kubectl create deploy pay --image=skuser11.azurecr.io/pay:v1
 kubectl expose deploy pay --type=ClusterIP --port=8080
 
 
 cd .. 
 cd Delivery
-az acr build --registry skteam01 --image skteam01.azurecr.io/delivery:v1 .
-kubectl create deploy delivery --image=skteam01.azurecr.io/delivery:v1
+az acr build --registry skuser11 --image skuser11.azurecr.io/delivery:v1 .
+kubectl create deploy delivery --image=skuser11.azurecr.io/delivery:v1
 kubectl expose deploy delivery --type=ClusterIP --port=8080
 
 
 cd .. 
 cd gateway
-az acr build --registry skteam01 --image skteam01.azurecr.io/gateway:v1 .
-kubectl create deploy gateway --image=skteam01.azurecr.io/gateway:v1
+az acr build --registry skuser11 --image skuser11.azurecr.io/gateway:v1 .
+kubectl create deploy gateway --image=skuser11.azurecr.io/gateway:v1
 kubectl expose deploy gateway --type=LoadBalancer --port=8080
 
 cd .. 
 cd MyPage
-az acr build --registry skteam01 --image skteam01.azurecr.io/mypage:v1 .
-kubectl create deploy mypage --image=skteam01.azurecr.io/mypage:v1
+az acr build --registry skuser11 --image skuser11.azurecr.io/mypage:v1 .
+kubectl create deploy mypage --image=skuser11.azurecr.io/mypage:v1
+kubectl expose deploy mypage --type=ClusterIP --port=8080
+
+cd .. 
+cd Inventory
+az acr build --registry skuser11 --image skuser11.azurecr.io/mypage:v1 .
+kubectl create deploy mypage --image=skuser11.azurecr.io/mypage:v1
 kubectl expose deploy mypage --type=ClusterIP --port=8080
 
 kubectl logs {pod명}
@@ -622,7 +635,7 @@ spec:
 
 * siege pod 생성
 ```
-/home/project/team/forthcafe/yaml/kubectl apply -f siege.yaml
+/home/project/personal/FourthCafe-main/yaml/kubectl apply -f siege.yaml
 ```
 
 * 부하테스터 siege 툴을 통한 서킷 브레이커 동작 확인: 동시사용자 100명 60초 동안 실시
@@ -649,8 +662,8 @@ siege -c100 -t30S  -v --content-type "application/json" 'http://52.141.61.164:80
 ```
 * 다시 배포해준다.
 ```
-/home/project/team/forthcafe/Order/mvn package
-az acr build --registry skteam01 --image skteam01.azurecr.io/order:v1 .
+/home/project/personal/FourthCafe-main/Order/mvn package
+az acr build --registry skuser11 --image skuser11.azurecr.io/order:v1 .
 kubectl apply -f kubernetes/deployment.yml 
 kubectl expose deploy order --type=ClusterIP --port=8080
 ```
@@ -661,7 +674,7 @@ kubectl expose deploy order --type=ClusterIP --port=8080
 kubectl autoscale deploy order --min=1 --max=10 --cpu-percent=15
 ```
 
-* /home/project/team/forthcafe/yaml/siege.yaml
+* /home/project/personal/FourthCafe-main/yaml/siege.yaml
 ```
 apiVersion: v1
 kind: Pod
@@ -675,7 +688,7 @@ spec:
 
 * siege pod 생성
 ```
-/home/project/team/forthcafe/yaml/kubectl apply -f siege.yaml
+/home/project/personal/FourthCafe-main/yaml/kubectl apply -f siege.yaml
 ```
 
 * siege를 활용해서 워크로드를 1000명, 1분간 걸어준다. (Cloud 내 siege pod에서 부하줄 것)
