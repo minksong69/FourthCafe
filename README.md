@@ -759,6 +759,10 @@ kubectl get pod
 ![image](https://user-images.githubusercontent.com/78134028/110079213-2c99a800-7dcc-11eb-8b2e-c970893885f7.png)
 
 
+* 배포중 부하테스트 결과 - 100% 성공
+siege -c10 -t180S  -v --content-type "application/json" 'http://Inventory:8080/inventories POST {"memuId":2, "quantity":1}'
+
+![image](https://user-images.githubusercontent.com/78134028/110079769-dbd67f00-7dcc-11eb-9e22-b40c34ca3f70.png)
 
 
 
