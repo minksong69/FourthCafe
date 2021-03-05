@@ -331,7 +331,7 @@ public interface InventoryService {
 ![증빙7](https://github.com/minksong69/FourthCafe/blob/main/images/Inventory%20%EC%9A%B4%EC%98%81%20%EC%A4%91%EC%A7%80.png)
 
 주문 요청시 오류 발생
-![증빙8](https://github.com/bigot93/forthcafe/blob/main/images/%EB%8F%99%EA%B8%B0%ED%99%942.png)
+![증빙8](https://github.com/minksong69/FourthCafe/blob/main/images/%EC%A3%BC%EB%AC%B8%20%EC%9A%94%EC%B2%AD%EC%8B%9C%20%EC%98%A4%EB%A5%98.png)
 
 Delivery 서비스 재기동 후 주문취소
 ![증빙9](https://github.com/bigot93/forthcafe/blob/main/images/%EB%8F%99%EA%B8%B0%ED%99%943.png)
