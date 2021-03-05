@@ -765,8 +765,10 @@ kubectl get pod
       periodSeconds: 5
 ```
 
-![image](https://user-images.githubusercontent.com/5147735/109740864-4fcb2880-7c0f-11eb-86ad-2aabb0197881.png)
-![image](https://user-images.githubusercontent.com/5147735/109742082-c0734480-7c11-11eb-9a57-f6dd6961a6d2.png)
+![image](https://user-images.githubusercontent.com/78134028/110073731-3bc82800-7dc3-11eb-9c90-1f0fd5c2c053.png)
+
+![image](https://user-images.githubusercontent.com/78134028/110073637-0c192000-7dc3-11eb-9662-62e0ec00453e.png)
+
 
 
 
