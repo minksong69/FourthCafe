@@ -333,7 +333,7 @@ public interface InventoryService {
 주문 요청시 오류 발생
 ![증빙8](https://github.com/minksong69/FourthCafe/blob/main/images/%EC%A3%BC%EB%AC%B8%20%EC%9A%94%EC%B2%AD%EC%8B%9C%20%EC%98%A4%EB%A5%98.png)
 
-Delivery 서비스 재기동 후 주문취소
+Inventory 서비스 재기동
 ![증빙9](https://github.com/bigot93/forthcafe/blob/main/images/%EB%8F%99%EA%B8%B0%ED%99%943.png)
 
 Pay 서비스 상태를 보면 2번 주문 정상 취소 처리됨
