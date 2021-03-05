@@ -345,8 +345,10 @@ Fallback 설정
 ![image](https://github.com/minksong69/FourthCafe/blob/main/images/Fallback%20%EC%84%A4%EC%A0%952.png)
 
 
-Fallback 결과(Pay service 종료 후 Order 추가 시)
-![image](https://user-images.githubusercontent.com/5147735/109755716-dab91c80-7c29-11eb-9099-ba585115a2a6.png)
+Fallback 결과(Inventory 서비스 종료 후 Order 추가 시)
+![image](https://user-images.githubusercontent.com/78134028/110067047-2b5d8080-7db6-11eb-9504-a67fd86f3903.png)
+![image](https://user-images.githubusercontent.com/78134028/110067140-665fb400-7db6-11eb-81df-6f98939d5d32.png)
+
 
 # 운영
 
