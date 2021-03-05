@@ -554,9 +554,9 @@ kubectl expose deploy gateway --type=LoadBalancer --port=8080
 
 cd .. 
 cd Inventory
-az acr build --registry skuser11 --image skuser11.azurecr.io/mypage:v1 .
+az acr build --registry skuser11 --image skuser11.azurecr.io/inventory:v1 .
 kubectl apply -f kubernetes/deployment.yml 
-kubectl expose deploy mypage --type=ClusterIP --port=8080
+kubectl expose deploy inventory --type=ClusterIP --port=8080
 ```
 
 
@@ -596,14 +596,15 @@ kubectl expose deploy mypage --type=ClusterIP --port=8080
 
 cd .. 
 cd Inventory
-az acr build --registry skuser11 --image skuser11.azurecr.io/mypage:v1 .
-kubectl create deploy mypage --image=skuser11.azurecr.io/mypage:v1
-kubectl expose deploy mypage --type=ClusterIP --port=8080
+az acr build --registry skuser11 --image skuser11.azurecr.io/inventory:v1 .
+kubectl create deploy inventory --image=skuser11.azurecr.io/mypage:v1
+kubectl expose deploy inventory --type=ClusterIP --port=8080
 
 kubectl logs {pod명}
 ```
 * Service, Pod, Deploy 상태 확인
-![image](https://user-images.githubusercontent.com/5147735/109769165-2de89a80-7c3d-11eb-8472-2281468fb771.png)
+![image](https://user-images.githubusercontent.com/78134028/110071497-821b8800-7dbf-11eb-93d2-1687c0520ef1.png)
+
 
 
 * deployment.yml  참고
