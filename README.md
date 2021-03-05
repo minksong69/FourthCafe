@@ -170,35 +170,7 @@ public class PolicyHandler{
 
     }
 
-    @StreamListener(KafkaProcessor.INPUT)
-    public void wheneverDeliveryCancelled_InventoryCancel(@Payload DeliveryCancelled deliveryCancelled){
-
-        try {
-            if(deliveryCancelled.isMe()){
-                System.out.println("##### DeliveryCancelled listener  : " + deliveryCancelled.toJson());
     
-                Optional<Delivery> Optional = deliveryRepository.findById(deliveryCancelled.getId());
-    
-                if( Optional.isPresent()) {
-                    Delivery delivery = Optional.get();
-    
-                    // 객체에 이벤트의 eventDirectValue 를 set 함
-                    delivery.setId(deliveryCancelled.getId());
-                    delivery.setMenuId(deliveryCancelled.getMenuId());
-                    delivery.setMenuName(deliveryCancelled.getMenuName());
-                    delivery.setOrdererName(deliveryCancelled.getOrdererName());
-                    delivery.setPrice(deliveryCancelled.getPrice());
-                    delivery.setQuantity(deliveryCancelled.getQuantity());
-                    delivery.setStatus("deliveryCancelled");
-
-                    deliveryRepository.save(delivery);
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
 }
 ```
 
