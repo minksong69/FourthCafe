@@ -341,7 +341,7 @@ Inventory 서비스 재기동
 ![증빙10](https://github.com/minksong69/FourthCafe/blob/main/images/%EC%9E%AC%EA%B8%B0%EB%8F%99%20%ED%9B%84%20%EC%A0%95%EC%83%81%20%EC%B2%98%EB%A6%AC2.png)
 
 Fallback 설정
-![image](https://user-images.githubusercontent.com/5147735/109755775-f9b7ae80-7c29-11eb-8add-bdb295dc94e1.png)
+![image](https://github.com/minksong69/FourthCafe/blob/main/images/Fallback%20%EC%84%A4%EC%A0%95.png)
 ![image](https://user-images.githubusercontent.com/5147735/109755797-04724380-7c2a-11eb-8fcd-1c5135000ee5.png)
 
 
