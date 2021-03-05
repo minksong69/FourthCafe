@@ -731,7 +731,8 @@ kubectl get deploy order -w
 ```
 kubectl get pod
 ```
-![image](https://user-images.githubusercontent.com/5147735/109771259-f3ccc800-7c3f-11eb-8ebe-9ff4ab9c2242.png)
+![image](https://user-images.githubusercontent.com/78134028/110072920-e4758800-7dc1-11eb-9085-5633e44c6eb3.png)
+
 
 
 
