@@ -342,7 +342,7 @@ Inventory 서비스 재기동
 
 Fallback 설정
 ![image](https://github.com/minksong69/FourthCafe/blob/main/images/Fallback%20%EC%84%A4%EC%A0%95.png)
-![image](https://user-images.githubusercontent.com/5147735/109755797-04724380-7c2a-11eb-8fcd-1c5135000ee5.png)
+![image](https://github.com/minksong69/FourthCafe/blob/main/images/Fallback%20%EC%84%A4%EC%A0%952.png)
 
 
 Fallback 결과(Pay service 종료 후 Order 추가 시)
