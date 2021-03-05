@@ -336,7 +336,7 @@ public interface InventoryService {
 Inventory 서비스 재기동
 ![증빙9](https://github.com/minksong69/FourthCafe/blob/main/images/Inventory%20%EC%9E%AC%EA%B8%B0%EB%8F%99.png)
 
-Pay 서비스 상태를 보면 2번 주문 정상 취소 처리됨
+주문 요청이 정상적으로 처리됨
 ![증빙9](https://github.com/bigot93/forthcafe/blob/main/images/%EB%8F%99%EA%B8%B0%ED%99%944.png)
 
 Fallback 설정
