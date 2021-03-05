@@ -616,9 +616,61 @@ kubectl logs {pod명}
 5. resource 설정 (autoscaling)
 ```
 
-![image](https://user-images.githubusercontent.com/5147735/109643506-a8f77580-7b97-11eb-926b-e6c922aa2d1b.png)
-
-
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: inventory
+  labels:
+    app: inventory
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: inventory
+  template:
+    metadata:
+      labels:
+        app: inventory
+    spec:
+      containers:
+        - name: inventory
+          image: skuser11.azurecr.io/inventory:v1
+          ports:
+            - containerPort: 8080
+          # autoscale start
+          resources:
+              limits:
+                cpu: 500m
+              requests:
+                cpu: 200m
+          # autoscale end
+          ### config map start
+          #env:
+          #  - name: SYS_MODE
+          #    valueFrom:
+          #      configMapKeyRef:
+          #        name: systemmode
+          #        key: sysmode
+          ### config map end
+          readinessProbe:
+            httpGet:
+              path: '/actuator/health'
+              port: 8080
+            initialDelaySeconds: 10
+            timeoutSeconds: 2
+            periodSeconds: 5
+            failureThreshold: 10
+          livenessProbe:
+            httpGet:
+              path: '/actuator/health'
+              port: 8080
+            initialDelaySeconds: 120
+            timeoutSeconds: 2
+            periodSeconds: 5
+            failureThreshold: 5
+            
+```
 
 
 
