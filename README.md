@@ -480,7 +480,8 @@ env:
 kubectl create configmap systemmode --from-literal=sysmode=PRODUCT
 kubectl get configmap systemmode -o yaml
 ```
-![image](https://user-images.githubusercontent.com/5147735/109768817-bb77ba80-7c3c-11eb-8856-7fca5213f5b1.png)
+![image](https://user-images.githubusercontent.com/78134028/110075933-fefe3000-7dc6-11eb-9806-9d63f124f13b.png)
+
 
 * order 1건 추가후 로그 확인
 ```
