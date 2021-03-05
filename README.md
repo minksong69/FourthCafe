@@ -742,17 +742,22 @@ kubectl get pod
 ## 무정지 재배포 (Readiness Probe)
 * 배포전
 
-![image](https://user-images.githubusercontent.com/78134028/110078333-eee84f80-7dca-11eb-940b-2e7ecff756c2.png)
+![image](https://user-images.githubusercontent.com/78134028/110078939-c876e400-7dcb-11eb-97a7-505f69c1710e.png)
+
 
 
 * 배포중
 
-![image](https://user-images.githubusercontent.com/5147735/109744076-11386c80-7c15-11eb-849d-6cf4e2c72675.png)
-![image](https://user-images.githubusercontent.com/5147735/109744186-3a58fd00-7c15-11eb-8da3-f11b6194fc6b.png)
+![image](https://user-images.githubusercontent.com/78134028/110079024-e5131c00-7dcb-11eb-9405-664cc8c6a98c.png)
+
+![image](https://user-images.githubusercontent.com/78134028/110079153-1ab80500-7dcc-11eb-9444-405c7c66b836.png)
+
+
 
 * 배포후
 
-![image](https://user-images.githubusercontent.com/5147735/109744225-45139200-7c15-11eb-8efa-07ac40162ded.png)
+![image](https://user-images.githubusercontent.com/78134028/110079213-2c99a800-7dcc-11eb-8b2e-c970893885f7.png)
+
 
 
 
