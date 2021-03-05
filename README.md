@@ -337,7 +337,7 @@ Inventory 서비스 재기동
 ![증빙9](https://github.com/minksong69/FourthCafe/blob/main/images/Inventory%20%EC%9E%AC%EA%B8%B0%EB%8F%99.png)
 
 주문 요청이 정상적으로 처리됨
-![증빙9](https://github.com/bigot93/forthcafe/blob/main/images/%EB%8F%99%EA%B8%B0%ED%99%944.png)
+![증빙9](https://github.com/minksong69/FourthCafe/blob/main/images/%EC%9E%AC%EA%B8%B0%EB%8F%99%20%ED%9B%84%20%EC%A0%95%EC%83%81%20%EC%B2%98%EB%A6%AC.png)
 
 Fallback 설정
 ![image](https://user-images.githubusercontent.com/5147735/109755775-f9b7ae80-7c29-11eb-8add-bdb295dc94e1.png)
